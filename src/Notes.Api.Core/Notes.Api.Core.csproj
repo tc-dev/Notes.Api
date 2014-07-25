@@ -40,6 +40,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Repositories\IDomainUserQueryBuilder.cs" />
+    <Compile Include="Data\Repositories\IDomainUserRepository.cs" />
+    <Compile Include="Data\Repositories\INoteBookQueryBuilder.cs" />
+    <Compile Include="Data\Repositories\INoteBookRepository.cs" />
+    <Compile Include="Data\Repositories\INoteQueryBuilder.cs" />
+    <Compile Include="Data\Repositories\INotesRepository.cs" />
+    <Compile Include="Data\Repositories\IPageQueryBuilder.cs" />
+    <Compile Include="Data\Repositories\IPageRepository.cs" />
     <Compile Include="Domain\Models\DomainUser.cs" />
     <Compile Include="Domain\Models\Note.cs" />
     <Compile Include="Domain\Models\NoteBook.cs" />
