@@ -11,6 +11,6 @@ namespace Notes.Api.Core.Data
 
         IPageRepository PageRepository { get; }
 
-        INoteRepository NoteReposigory { get; }
+        INoteRepository NoteRepository { get; }
     }
 }
