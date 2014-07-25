@@ -10,10 +10,10 @@ namespace Notes.Api.Core.Data.Repositories
 
         IDomainUserQueryBuilder ByOwnedNoteBookId(int noteBookId);
 
-        IDomainUserQueryBuilder BySharedNoteBooksId(int noteBooks);
 
         IDomainUserQueryBuilder WhereOwned();
 
         IDomainUserQueryBuilder WhereShared();
+        IDomainUserQueryBuilder BySharedNoteBooksId(int noteBookId);
     }
 }
