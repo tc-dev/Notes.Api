@@ -18,7 +18,7 @@ namespace Notes.Api.Bootstrapper
 
             app.UseOAuthBearerTokens(CreateOAuthOptions());
 
-            app.UseGoogleAuthentication();
+            //app.UseGoogleAuthentication();
         }
 
         private OAuthAuthorizationServerOptions CreateOAuthOptions() {
