@@ -4,14 +4,16 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
+using System.Web.Mvc;
+using Microsoft.Owin.Security;
 using Notes.Api.Models;
 using tc_dev.Core.Identity;
 using tc_dev.Core.Identity.Models;
 
 namespace Notes.Api.Controllers
 {
-    [Authorize]
-    [RoutePrefix("api/Account")]
+    [System.Web.Http.Authorize]
+    [System.Web.Http.RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
         private readonly IAppUserManager _userManager;
@@ -22,9 +24,9 @@ namespace Notes.Api.Controllers
             _authenticationManager = authManager;
         }
 
-        [AllowAnonymous]
-        [HttpPost]
-        [Route("Register")]
+        [System.Web.Http.AllowAnonymous]
+        [System.Web.Http.HttpPost]
+        [System.Web.Http.Route("Register")]
         public async Task<IHttpActionResult> Register(RegisterBindingModel model) {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -41,6 +43,7 @@ namespace Notes.Api.Controllers
             await _userManager.AddToRoleAsync(user.Id, "UserRole");
             return Ok();
         }
+
 
 
 
