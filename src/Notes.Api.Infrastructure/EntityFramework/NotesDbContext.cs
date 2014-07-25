@@ -7,8 +7,10 @@ using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Notes.Api.Infrastructure.EntityFramework.Configurations;
 using tc_dev.Core.Domain;
 using tc_dev.Core.Infrastructure.EntityFramework;
+using tc_dev.Core.Infrastructure.EntityFramework.Configurations;
 using tc_dev.Core.Infrastructure.EntityFramework.Conventions;
 using tc_dev.Core.Infrastructure.Identity.Models;
 using tc_dev.Core.Service;
@@ -41,7 +43,18 @@ namespace Notes.Api.Infrastructure.EntityFramework
             modelBuilder.Conventions.Add<ForeignKeyNamingConvention>();
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            
+            modelBuilder.Configurations.Add(new DomainUserConfiguration())
+                                       .Add(new NoteBookConfiguration())
+                                       .Add(new NoteConfiguration())
+                                       .Add(new PageConfiguration());
+
+            modelBuilder.Entity<AppIdentityUser>().Configure();
+            modelBuilder.Entity<AppIdentityRole>().Configure();
+            modelBuilder.Entity<AppIdentityUserRole>().Configure();
+            modelBuilder.Entity<AppIdentityUserLogin>().Configure();
+            modelBuilder.Entity<AppIdentityUserClaim>().Configure();
+
+            modelBuilder.Entity<AppIdentityUser>().IgnorePhone();
         }
 
         public new IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity {

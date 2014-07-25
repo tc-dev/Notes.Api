@@ -88,6 +88,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityFramework\Configurations\DomainUserConfiguration.cs" />
+    <Compile Include="EntityFramework\Configurations\NoteBookConfiguration.cs" />
+    <Compile Include="EntityFramework\Configurations\NoteConfiguration.cs" />
+    <Compile Include="EntityFramework\Configurations\PageConfiguration.cs" />
     <Compile Include="EntityFramework\NotesDbContext.cs" />
     <Compile Include="EntityFramework\NotesUnitOfWork.cs" />
     <Compile Include="EntityFramework\Repositories\DomainUserQueryBuilder.cs" />
