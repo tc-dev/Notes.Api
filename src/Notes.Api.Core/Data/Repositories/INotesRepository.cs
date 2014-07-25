@@ -3,7 +3,7 @@ using tc_dev.Core.Data;
 
 namespace Notes.Api.Core.Data.Repositories
 {
-    public interface INotesRepository
+    public interface INoteRepository
         : IPersistableRepository<Note>, IQueryableRepository<Note, INoteQueryBuilder>
     {
     }
