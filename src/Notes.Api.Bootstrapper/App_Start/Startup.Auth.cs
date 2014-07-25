@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.DataProtection;
+using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Notes.Api.Infrastructure.EntityFramework;
 using Owin;
@@ -13,10 +14,13 @@ namespace Notes.Api.Bootstrapper
         public static IDataProtectionProvider DataProtectionProvider { get; private set; }  
 
         public void ConfigureAuth(IAppBuilder app) {
-
             DataProtectionProvider = app.GetDataProtectionProvider();
 
             app.UseOAuthBearerTokens(CreateOAuthOptions());
+
+            app.UseGoogleAuthentication();
+        }
+
         private OAuthAuthorizationServerOptions CreateOAuthOptions() {
             return new OAuthAuthorizationServerOptions {
                 TokenEndpointPath = new PathString("/Token"),
@@ -26,8 +30,7 @@ namespace Notes.Api.Bootstrapper
                 AuthorizeEndpointPath = new PathString("/api/Account/ExternalLogin"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
                 AllowInsecureHttp = true
-
-            app.UseOAuthBearerTokens(oAuthOptions);
+            };   
         }
     }
 }
