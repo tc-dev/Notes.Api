@@ -32,6 +32,8 @@ namespace Notes.Api.Bootstrapper
             builder.Register(b => NLogLogger.Instance)
                 .SingleInstance();
 
+            builder.RegisterModule(new IdentityModule());
+
             var container = builder.Build();
             var resolver = new AutofacWebApiDependencyResolver(container);
 
