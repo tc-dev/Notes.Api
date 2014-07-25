@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFramework\NotesDbContext.cs" />
+    <Compile Include="EntityFramework\NotesUnitOfWork.cs" />
     <Compile Include="EntityFramework\Repositories\DomainUserQueryBuilder.cs" />
     <Compile Include="EntityFramework\Repositories\DomainUserRepository.cs" />
     <Compile Include="EntityFramework\Repositories\NoteBookQueryBuilder.cs" />
