@@ -40,6 +40,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Models\DomainUser.cs" />
+    <Compile Include="Domain\Models\Note.cs" />
+    <Compile Include="Domain\Models\NoteBook.cs" />
+    <Compile Include="Domain\Models\Page.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
