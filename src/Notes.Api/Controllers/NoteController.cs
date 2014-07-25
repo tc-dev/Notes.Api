@@ -15,15 +15,12 @@ namespace Notes.Api.Controllers
     {
         private readonly INotesUnitOfWork _unitOfWork;
         private readonly INoteRepository _noteRepository;
-        private readonly IAppUserManager _userManager;
 
-        public NoteController(INotesUnitOfWork unitOfWork, IAppUserManager userManager) {
+        public NoteController(INotesUnitOfWork unitOfWork) {
             unitOfWork.ThrowIfNull("unitOfWork");
-            userManager.ThrowIfNull("userManager");
 
             _unitOfWork = unitOfWork;
             _noteRepository = unitOfWork.NoteRepository;
-            _userManager = userManager;
         }
 
         [HttpGet]
