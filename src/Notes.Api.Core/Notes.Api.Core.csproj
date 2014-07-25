@@ -40,6 +40,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\INotesUnitOfWork.cs" />
     <Compile Include="Data\Repositories\IDomainUserQueryBuilder.cs" />
     <Compile Include="Data\Repositories\IDomainUserRepository.cs" />
     <Compile Include="Data\Repositories\INoteBookQueryBuilder.cs" />
