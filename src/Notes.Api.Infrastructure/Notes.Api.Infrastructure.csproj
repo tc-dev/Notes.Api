@@ -41,13 +41,35 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="tc-dev.Core">
+      <HintPath>..\..\..\tc-dev.Core\src\tc-dev.Core.Infrastructure\bin\Debug\tc-dev.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="tc-dev.Core.Common">
+      <HintPath>..\..\..\tc-dev.Core\src\tc-dev.Core.Infrastructure\bin\Debug\tc-dev.Core.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="tc-dev.Core.Infrastructure">
+      <HintPath>..\..\..\tc-dev.Core\src\tc-dev.Core.Infrastructure\bin\Debug\tc-dev.Core.Infrastructure.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityFramework\Repositories\DomainUserQueryBuilder.cs" />
+    <Compile Include="EntityFramework\Repositories\DomainUserRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\NoteBookQueryBuilder.cs" />
+    <Compile Include="EntityFramework\Repositories\NoteBookRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\NoteRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\PageQueryBuilder.cs" />
+    <Compile Include="EntityFramework\Repositories\PageRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Notes.Api.Core\Notes.Api.Core.csproj">
+      <Project>{8FBFE447-EC54-46C2-B741-F1E19E81AE9D}</Project>
+      <Name>Notes.Api.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
