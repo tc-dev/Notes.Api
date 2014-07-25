@@ -101,6 +101,7 @@
     <Compile Include="EntityFramework\Repositories\NoteRepository.cs" />
     <Compile Include="EntityFramework\Repositories\PageQueryBuilder.cs" />
     <Compile Include="EntityFramework\Repositories\PageRepository.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
