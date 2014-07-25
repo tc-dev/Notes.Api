@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Notes.Api.Core.Data;
@@ -41,7 +40,7 @@ namespace Notes.Api.Controllers
                     NoteBookId = pageEntity.NoteBookId,
                     ColorHex = pageEntity.ColorHex,
                     Title = pageEntity.Title,
-                    Notes = !pageEntity.Notes.Any() 
+                    Notes = !pageEntity.Notes.Any()
                         ? null
                         : pageEntity.Notes.Select(n =>
                             new NoteModel {
@@ -75,7 +74,7 @@ namespace Notes.Api.Controllers
                 _pageRepository.Insert(page);
                 await _unitOfWork.SaveChangesAsync();
 
-                var uri = Url.Link("DefaultApi", new {id = page.Id});
+                var uri = Url.Link("DefaultApi", new { id = page.Id });
                 return Created(uri, page);
             }
             catch {
