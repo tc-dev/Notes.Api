@@ -7,7 +7,7 @@ using tc_dev.Core.Common.Utilities;
 namespace Notes.Api.Controllers
 {
     [RoutePrefix("api/user")]
-    public class UserController
+    public class UserController : ApiController
     {
         private readonly INotesUnitOfWork _unitOfWork;
         private readonly IDomainUserRepository _domainUserRepo;
