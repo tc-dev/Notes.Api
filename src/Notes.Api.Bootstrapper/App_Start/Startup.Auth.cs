@@ -16,7 +16,9 @@ namespace Notes.Api.Bootstrapper
 
             DataProtectionProvider = app.GetDataProtectionProvider();
 
-            var oAuthOptions = new OAuthAuthorizationServerOptions {
+            app.UseOAuthBearerTokens(CreateOAuthOptions());
+        private OAuthAuthorizationServerOptions CreateOAuthOptions() {
+            return new OAuthAuthorizationServerOptions {
                 TokenEndpointPath = new PathString("/Token"),
                 Provider = new AppOAuthProvider(
                     "self",
@@ -24,7 +26,6 @@ namespace Notes.Api.Bootstrapper
                 AuthorizeEndpointPath = new PathString("/api/Account/ExternalLogin"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
                 AllowInsecureHttp = true
-            };
 
             app.UseOAuthBearerTokens(oAuthOptions);
         }
