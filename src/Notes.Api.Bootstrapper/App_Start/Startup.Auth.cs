@@ -1,5 +1,10 @@
-﻿using Microsoft.Owin.Security.DataProtection;
+﻿using System;
+using Microsoft.Owin;
+using Microsoft.Owin.Security.DataProtection;
+using Microsoft.Owin.Security.OAuth;
+using Notes.Api.Infrastructure.EntityFramework;
 using Owin;
+using tc_dev.Core.Infrastructure.Identity;
 
 namespace Notes.Api.Bootstrapper
 {
@@ -11,6 +16,17 @@ namespace Notes.Api.Bootstrapper
 
             DataProtectionProvider = app.GetDataProtectionProvider();
 
+            var oAuthOptions = new OAuthAuthorizationServerOptions {
+                TokenEndpointPath = new PathString("/Token"),
+                Provider = new AppOAuthProvider(
+                    "self",
+                    () => IdentityFactory.CreateUserManager(new NotesDbContext())),
+                AuthorizeEndpointPath = new PathString("/api/Account/ExternalLogin"),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
+                AllowInsecureHttp = true
+            };
+
+            app.UseOAuthBearerTokens(oAuthOptions);
         }
     }
 }
