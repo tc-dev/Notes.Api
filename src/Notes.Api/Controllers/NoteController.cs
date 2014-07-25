@@ -26,22 +26,27 @@ namespace Notes.Api.Controllers
         [HttpGet]
         [Route("{id:int}")]
         public async Task<IHttpActionResult> Get(int id) {
-            var noteEntity = await _noteRepository.Query()
-                .ById(id)
-                .FirstOrDefaultAsync();
+            try {
+                var noteEntity = await _noteRepository.Query()
+                    .ById(id)
+                    .FirstOrDefaultAsync();
 
-            if (noteEntity == null)
-                return NotFound();
+                if (noteEntity == null)
+                    return NotFound();
 
-            var model = new NoteModel {
-                Id = noteEntity.Id,
-                PageId = noteEntity.PageId,
-                DateCreated = noteEntity.DateCreated,
-                DateLastModified = noteEntity.DateLastModified,
-                Text = noteEntity.Text
-            };
+                var model = new NoteModel {
+                    Id = noteEntity.Id,
+                    PageId = noteEntity.PageId,
+                    DateCreated = noteEntity.DateCreated,
+                    DateLastModified = noteEntity.DateLastModified,
+                    Text = noteEntity.Text
+                };
 
-            return Ok(model);
+                return Ok(model);
+            }
+            catch {
+                return InternalServerError(); // TODO
+            }
         }
 
         [HttpPost]
